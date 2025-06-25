@@ -25,8 +25,9 @@ function App() {
       setMnemonic(res.data.mnemonic);
       setWallets(res.data.wallets);
     } catch (err) {
-      console.error(err);
-      setError(err.response?.data?.error || 'Something went wrong.');
+      console.error('Full error:', err);
+      const message = err.response?.data?.error || err.message;
+      setError('Error: ' + message);
     } finally {
       setLoading(false);
     }
