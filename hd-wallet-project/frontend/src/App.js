@@ -18,10 +18,8 @@ function App() {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get(
-        `https://hd-wallet-backend.onrender.com/generate-wallets?count=${count}`
-        // use `http://localhost:4000/...` in local dev
-      );
+      const res = await axios.get(`http://localhost:4000/generate-wallets?count=${count}`);
+
       setMnemonic(res.data.mnemonic);
       setWallets(res.data.wallets);
     } catch (err) {
